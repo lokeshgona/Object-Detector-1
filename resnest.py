@@ -4,7 +4,6 @@ import torch
 import torch.nn as nn
 import sys
 
-sys.path.insert(0, "../usr/lib/splat")
 from splat import SplAtConv2d
 
 __all__ = ['ResNet', 'Bottleneck']
