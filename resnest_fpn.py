@@ -104,10 +104,10 @@ def resnest_fpn_backbone(backbone_name, pretrained, norm_layer=misc_nn_ops.Froze
         pretrained=pretrained,
         norm_layer=norm_layer)
     """
-    Constructs a specified ResNet backbone with FPN on top. Freezes the specified number of layers in the backbone.
+    Constructs a specified ResNeSt backbone with FPN on top. Freezes the specified number of layers in the backbone.
     Examples::
-        >>> from torchvision.models.detection.backbone_utils import resnet_fpn_backbone
-        >>> backbone = resnet_fpn_backbone('resnet50', pretrained=True, trainable_layers=3)
+        >>> from resnest_fpn import resnet_fpn_backbone
+        >>> backbone = resnet_fpn_backbone('resnest50', pretrained=True, trainable_layers=3)
         >>> # get some dummy image
         >>> x = torch.rand(1,3,64,64)
         >>> # compute the output
@@ -120,10 +120,8 @@ def resnest_fpn_backbone(backbone_name, pretrained, norm_layer=misc_nn_ops.Froze
         >>>    ('3', torch.Size([1, 256, 2, 2])),
         >>>    ('pool', torch.Size([1, 256, 1, 1]))]
     Arguments:
-        backbone_name (string): resnet architecture. Possible values are 'ResNet', 'resnet18', 'resnet34', 'resnet50',
-             'resnet101', 'resnet152', 'resnext50_32x4d', 'resnext101_32x8d', 'wide_resnet50_2', 'wide_resnet101_2'
+        backbone_name (string): ResNeSt architecture. Possible values are 'resnest50', 'resnest101', 'resnest200', 'resnest269'.
         norm_layer (torchvision.ops): it is recommended to use the default value. For details visit:
-            (https://github.com/facebookresearch/maskrcnn-benchmark/issues/267)
         pretrained (bool): If True, returns a model with backbone pre-trained on Imagenet
         trainable_layers (int): number of trainable (not frozen) resnet layers starting from final block.
             Valid values are between 0 and 5, with 5 meaning all backbone layers are trainable.
